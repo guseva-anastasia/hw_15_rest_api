@@ -4,6 +4,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.*;
+import static io.restassured.http.ContentType.JSON;
+import static org.hamcrest.Matchers.*;
 
 
 public class ReqresInTests extends TestBase {
@@ -17,14 +19,17 @@ public class ReqresInTests extends TestBase {
         user.setJob("leader");
         given()
                 .body(user)
-                .when()
+                .contentType(JSON)
                 .log().uri()
-                .log().body()
+                .when()
                 .post("/users")
                 .then()
                 .log().status()
                 .log().body()
-                .statusCode(201);
+                .statusCode(201)
+                .body("name", equalTo(user.getName()))
+                .body("job", equalTo(user.getJob()))
+                .body("id", notNullValue());
     }
 
     @Test
@@ -63,13 +68,17 @@ public class ReqresInTests extends TestBase {
         user.setJob("QA Lead");
         given()
                 .body(user)
-                .when()
+                .contentType(JSON)
                 .log().uri()
+                .when()
                 .put("/users/" + userId)
                 .then()
                 .log().status()
                 .log().body()
-                .statusCode(200);
+                .statusCode(200)
+                .body("name", equalTo(user.getName()))
+                .body("job", equalTo(user.getJob()))
+                .body("updatedAt", notNullValue());
     }
 
     @Test
