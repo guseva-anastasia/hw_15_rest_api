@@ -89,7 +89,7 @@ public class ReqresInTests extends TestBase {
                     .spec(statusCode200Spec)
                     .extract().as(UpdateUserResponse.class));
 
-        step ("Отправка запроса на изменение данных пользователя", () -> {
+        step ("Проверка ответа на изменение данных пользователя", () -> {
             assertThat(response.getName()).isEqualTo(user.getName());
             assertThat(response.getJob()).isEqualTo(user.getJob());
             assertThat(response.getUpdatedAt()).isNotNull();
