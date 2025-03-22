@@ -28,11 +28,13 @@ public class ReqresInTests extends TestBase {
                 "Создание пользователя",
                 () -> given(requestSpec)
                         .body(user)
+
                         .when()
-                        .post("/users")
+                            .post("/users")
+
                         .then()
-                        .spec(statusCode201Spec)
-                        .extract().as(CreateUserResponseModel.class));
+                            .spec(statusCode201Spec)
+                            .extract().as(CreateUserResponseModel.class));
 
         step("Проверяем ответ на запрос", () -> {
             assertThat(response.getName()).isEqualTo(user.getName());
@@ -51,9 +53,10 @@ public class ReqresInTests extends TestBase {
         step ("Отправка запроса на получение данных пользователя", () -> {
             given(requestSpec)
                     .when()
-                    .get("/users/"+userId)
+                        .get("/users/"+userId)
+
                     .then()
-                    .spec(statusCode200Spec);
+                        .spec(statusCode200Spec);
         });
 
     }
@@ -66,9 +69,10 @@ public class ReqresInTests extends TestBase {
         step ("Отправка запроса на получение данных пользователя", () -> {
             given(requestSpec)
                     .when()
-                    .get("/users/"+userId)
+                        .get("/users/"+userId)
+
                     .then()
-                    .spec(statusCode404Spec);
+                        .spec(statusCode404Spec);
         });
     }
 
@@ -83,11 +87,13 @@ public class ReqresInTests extends TestBase {
                 ("Отправка запроса на изменение данных пользователя", () ->
             given(requestSpec)
                     .body(user)
+
                     .when()
-                    .put("/users/" + userId)
+                        .put("/users/" + userId)
+
                     .then()
-                    .spec(statusCode200Spec)
-                    .extract().as(UpdateUserResponse.class));
+                        .spec(statusCode200Spec)
+                        .extract().as(UpdateUserResponse.class));
 
         step ("Проверка ответа на изменение данных пользователя", () -> {
             assertThat(response.getName()).isEqualTo(user.getName());
@@ -103,10 +109,12 @@ public class ReqresInTests extends TestBase {
         String userId = "2";
         step("Отправка запроса на удаление пользователя",() ->{
             given(requestSpec)
+
                     .when()
-                    .delete("/users/" + userId)
+                        .delete("/users/" + userId)
+
                     .then()
-                    .spec(statusCode204Spec);
+                        .spec(statusCode204Spec);
         });
 
     }
