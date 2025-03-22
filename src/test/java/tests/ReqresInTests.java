@@ -1,7 +1,7 @@
 package tests;
+import models.CreateUserRequestModel;
 import models.CreateUserResponseModel;
 import models.UpdateUserResponse;
-import models.UserModel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -15,7 +15,7 @@ import static specs.ApiSpecs.*;
 
 public class ReqresInTests extends TestBase {
 
-    UserModel user = new UserModel();
+    CreateUserRequestModel user = new CreateUserRequestModel();
     TestData testData = new TestData();
 
     @Tag("reqres_in_tests")

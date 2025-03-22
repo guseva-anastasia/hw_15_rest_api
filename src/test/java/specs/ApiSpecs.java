@@ -13,9 +13,7 @@ public class ApiSpecs {
 
     public static RequestSpecification requestSpec = with()
             .filter(withCustomTemplates())
-            .log().uri()
-            .log().headers()
-            .log().body()
+            .log().all()
             .contentType(JSON);
 
     public static ResponseSpecification statusCode200Spec = new ResponseSpecBuilder()
