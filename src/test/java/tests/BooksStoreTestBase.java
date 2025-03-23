@@ -17,21 +17,22 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class BooksStoreTestBase {
     @BeforeAll
-    static void setup() {
-        Configuration.browserSize = "1920x1080";
-        Configuration.browser = "chrome";
-        Configuration.baseUrl = "https://demoqa.com";
+    static void configurationBrowser() {
+        Configuration.browser = System.getProperty("browser");
+        Configuration.browserVersion = System.getProperty("browserVersion");
+        Configuration.browserSize = System.getProperty("browserSize","1920x1080");
         RestAssured.baseURI = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
-        Configuration.remote = System.getProperty("remoteUrl");
+        Configuration.remote = "https://user1:1234@" + System.getProperty("remoteHost") + "/wd/hub";
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+        capabilities.setCapability("selenoid:options", Map .<String, Object>of(
                 "enableVNC", true,
                 "enableVideo", true
         ));
         Configuration.browserCapabilities = capabilities;
 
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
     @BeforeEach

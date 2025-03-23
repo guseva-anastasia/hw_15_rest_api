@@ -6,10 +6,12 @@ import models.book_store.AuthorizationResponseModel;
 import models.book_store.CreateUserRequestModel;
 import models.book_store.CreateUserResponseModel;
 import models.book_store.GenerateTokenResponseModel;
+import tests.BooksStoreTestBase;
+
 import static io.restassured.RestAssured.given;
 import static specs.ApiSpecs.*;
 
-public class AuthorizationApi {
+public class AuthorizationApi extends BooksStoreTestBase {
 
 
     public static CreateUserRequestModel registrationBody(){
