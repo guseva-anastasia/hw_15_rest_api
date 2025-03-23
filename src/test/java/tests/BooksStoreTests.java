@@ -13,17 +13,16 @@ import page.BookStorePage;
 public class BooksStoreTests extends BooksStoreTestBase {
 
     private final int BOOK_NO = 0;
-    AddBookApi addBook = new AddBookApi();
-    DeletedBookApi deletedBook = new DeletedBookApi();
-    GetBookCollectionApi bookList = new GetBookCollectionApi();
-    BookStorePage bookStorePage = new BookStorePage();
-    AddCookie cookie = new AddCookie();
-
 
     @DisplayName("Проверка удаления книги из профиля")
     @Test
     @Tag("book_store_tests")
     void removeItemFromListTest (){
+        AddBookApi addBook = new AddBookApi();
+        DeletedBookApi deletedBook = new DeletedBookApi();
+        GetBookCollectionApi bookList = new GetBookCollectionApi();
+        BookStorePage bookStorePage = new BookStorePage();
+        AddCookie cookie = new AddCookie();
         AuthorizationResponseModel auth = cookie.addCookie();
 
         BooksCollectionResponse collection = bookList.requestBookCollection();
