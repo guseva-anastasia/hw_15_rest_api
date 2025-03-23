@@ -27,8 +27,6 @@ public class BooksStoreTests extends BooksStoreTestBase {
 
         BooksCollectionResponse collection = bookList.requestBookCollection();
 
-        deletedBook.deleteAllBooks(auth);
-
         final String isbn = collection.getBooks()[0].getIsbn();
         final String title = collection.getBooks()[BOOK_NO].getTitle();
         addBook.addBook(isbn, auth.getToken(), auth.getUserId());
