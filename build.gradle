@@ -57,6 +57,12 @@ task reqres_in_tests(type:Test){
     }
 }
 
+task book_store_tests(type:Test){
+    useJUnitPlatform(){
+        includeTags("book_store_tests")
+    }
+}
+
 test {
     useJUnitPlatform {
         if (project.hasProperty("includeTags")) {

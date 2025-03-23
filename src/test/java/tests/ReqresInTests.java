@@ -1,7 +1,7 @@
 package tests;
-import models.CreateUserRequestModel;
-import models.CreateUserResponseModel;
-import models.UpdateUserResponse;
+import models.reqres_in.CreateUserRequestModel;
+import models.reqres_in.CreateUserResponseModel;
+import models.reqres_in.UpdateUserResponse;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -22,7 +22,7 @@ public class ReqresInTests extends TestBase {
     @Test
     @DisplayName("Проверка успешного создания пользователя")
     void createUserTest  (){
-        user.setName(testData.userName);
+        user.setName(testData.userFullName);
         user.setJob(testData.userJob);
         CreateUserResponseModel response = step(
                 "Создание пользователя",
@@ -81,7 +81,7 @@ public class ReqresInTests extends TestBase {
     @DisplayName("Проверка успешного изменения пользователя")
     void updateUserTest (){
         String userId = "2";
-        user.setName(testData.userName);
+        user.setName(testData.userFullName);
         user.setJob(testData.userJob);
         UpdateUserResponse response = step
                 ("Отправка запроса на изменение данных пользователя", () ->

@@ -1,7 +1,7 @@
-package models;
+package models.book_store;
 import lombok.Data;
 
 @Data
 public class CreateUserRequestModel {
-    String name, job;
+    String userName, password;
 }

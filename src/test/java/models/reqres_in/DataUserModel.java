@@ -1,4 +1,4 @@
-package models;
+package models.reqres_in;
 import lombok.Data;
 
 @Data
