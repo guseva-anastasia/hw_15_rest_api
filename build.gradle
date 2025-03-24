@@ -33,6 +33,7 @@ dependencies {
             "io.qameta.allure:allure-rest-assured:2.27.0",
         "io.rest-assured:json-schema-validator:5.4.0",
             'com.github.javafaker:javafaker:1.0.2',
+            "org.aeonbits.owner:owner:1.0.12",
         "org.assertj:assertj-core:3.26.0"
     )
 }
