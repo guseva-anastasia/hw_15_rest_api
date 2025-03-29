@@ -10,7 +10,10 @@ public class WebDriverProvider {
         this.config = config;
     }
 
-    public void setConfig(){
+    public void setConfig() {
+        Configuration.pageLoadStrategy = "eager";
+        Configuration.timeout = 7000;
+
         Configuration.baseUrl = config.getBaseUrl();
         Configuration.browser = config.getBrowser();
         Configuration.browserSize = config.getBrowserSize();
@@ -21,7 +24,6 @@ public class WebDriverProvider {
 
 
     }
-
 
 
 }

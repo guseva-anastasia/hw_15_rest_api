@@ -30,10 +30,6 @@ public class TestBase {
         webDriverProvider.setConfig();
         Configuration.baseUrl = "https://demoqa.com";
         RestAssured.baseURI = "https://demoqa.com";
-        Configuration.pageLoadStrategy = "eager";
-        Configuration.remote = System.getProperty("remoteHost");
-        Configuration.timeout = 10000;
-
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
