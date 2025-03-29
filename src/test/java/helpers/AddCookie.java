@@ -10,10 +10,11 @@ import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class AddCookie extends TestBase {
-    final AuthorizationApi authApi = new AuthorizationApi();
+
 
     @Step("Добавить cookie авторизации в браузер")
     public AuthorizationResponseModel addCookie() {
+        final AuthorizationApi authApi = new AuthorizationApi();
         AuthorizationResponseModel auth = authApi.createNewUserTest();
 
         open("/favicon.ico");

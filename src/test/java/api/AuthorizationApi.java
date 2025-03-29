@@ -68,7 +68,6 @@ public class AuthorizationApi extends TestBase {
 
     }
 
-    @Step("Создание нового пользователя через API")
     public AuthorizationResponseModel createNewUserTest() {
         CreateUserRequestModel body = AuthorizationApi.registrationBody();
         registration(body);
