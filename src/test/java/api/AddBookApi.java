@@ -1,7 +1,9 @@
 package api;
 
 import io.qameta.allure.Step;
-import models.book_store.*;
+import models.AddBookRequestModel;
+import models.AddBookResponse;
+import models.IsbnBookModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +14,7 @@ import static specs.ApiSpecs.statusCode201Spec;
 
 public class AddBookApi {
     @Step("Добавление новой книги через API")
-    public AddBookResponse addBook(String isb, String token, String userId) {
+    public void addBook(String isb, String token, String userId) {
 
         List<IsbnBookModel> books = new ArrayList<>();
         books.add(new IsbnBookModel(isb));
@@ -20,7 +22,7 @@ public class AddBookApi {
         AddBookRequestModel bookData = new AddBookRequestModel();
         bookData.setUserId(userId);
         bookData.setCollectionOfIsbns(books);
-        return given(requestSpec)
+        given(requestSpec)
                 .header("Authorization", "Bearer " + token)
                 .body(bookData)
                 .when()

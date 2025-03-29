@@ -1,8 +1,7 @@
 package api;
 
 import io.qameta.allure.Step;
-import models.book_store.BookModelResponse;
-import models.book_store.BooksCollectionResponse;
+import models.BooksCollectionResponse;
 
 import static io.restassured.RestAssured.given;
 import static specs.ApiSpecs.requestSpec;

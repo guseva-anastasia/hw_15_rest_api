@@ -28,12 +28,6 @@ public class ApiSpecs {
             .log(BODY)
             .build();
 
-    public static ResponseSpecification statusCode404Spec = new ResponseSpecBuilder()
-            .expectStatusCode(404)
-            .log(STATUS)
-            .log(BODY)
-            .build();
-
     public static ResponseSpecification statusCode204Spec = new ResponseSpecBuilder()
             .expectStatusCode(204)
             .log(STATUS)

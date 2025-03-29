@@ -1,4 +1,4 @@
-package models.book_store;
+package models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;

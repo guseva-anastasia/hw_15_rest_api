@@ -1,4 +1,5 @@
 package helpers;
+
 import io.qameta.allure.restassured.AllureRestAssured;
 
 public class CustomApiListener {
@@ -9,4 +10,4 @@ public class CustomApiListener {
         FILTER.setResponseTemplate("response.ftl");
         return FILTER;
     }
-    }
+}

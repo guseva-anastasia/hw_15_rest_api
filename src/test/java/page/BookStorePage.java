@@ -21,12 +21,12 @@ public class BookStorePage {
 
         return this;
     }
+
     @Step("Проверка баннера")
     public BookStorePage googleConsent() {
         if (consentBanner.isDisplayed()) {
             consentBanner.$(byText("Consent")).click();
-        }
-        else{
+        } else {
             System.out.println("No consent banner");
         }
         return this;
@@ -34,7 +34,7 @@ public class BookStorePage {
 
     @Step("Проверка, что в коллекции есть книга {title}")
     public BookStorePage checkForBook(String title) {
-        $("[id='see-book-"+title+"']").shouldBe(visible);
+        $("[id='see-book-" + title + "']").shouldBe(visible);
         return this;
     }
 
@@ -43,6 +43,7 @@ public class BookStorePage {
         deleteButton.click();
         return this;
     }
+
     @Step("Подтверждение удаления книги")
     public BookStorePage confirmDelete() {
         okButton.click();
@@ -50,9 +51,10 @@ public class BookStorePage {
         Selenide.switchTo().parentFrame();
         return this;
     }
+
     @Step("Проверка, что в коллекции нет книги {title}")
     public BookStorePage checkTableBody(String title) {
-        $("[id='see-book-"+title+"']").shouldNot(visible);
+        $("[id='see-book-" + title + "']").shouldNot(visible);
         return this;
     }
 

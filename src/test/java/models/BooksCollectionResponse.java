@@ -1,4 +1,4 @@
-package models.book_store;
+package models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
@@ -6,5 +6,5 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
 public class BooksCollectionResponse {
-    private BookModelResponse [] books;
+    private BookModelResponse[] books;
 }

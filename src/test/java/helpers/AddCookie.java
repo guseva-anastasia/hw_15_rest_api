@@ -2,18 +2,18 @@ package helpers;
 
 import api.AuthorizationApi;
 import io.qameta.allure.Step;
-import models.book_store.AuthorizationResponseModel;
+import models.AuthorizationResponseModel;
 import org.openqa.selenium.Cookie;
-import tests.BooksStoreTestBase;
+import tests.TestBase;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
-public class AddCookie extends BooksStoreTestBase {
-    AuthorizationApi authApi = new AuthorizationApi();
+public class AddCookie extends TestBase {
+    final AuthorizationApi authApi = new AuthorizationApi();
 
     @Step("Добавить cookie авторизации в браузер")
-    public AuthorizationResponseModel addCookie(){
+    public AuthorizationResponseModel addCookie() {
         AuthorizationResponseModel auth = authApi.createNewUserTest();
 
         open("/favicon.ico");
@@ -23,7 +23,6 @@ public class AddCookie extends BooksStoreTestBase {
 
         return auth;
     }
-
 
 
 }

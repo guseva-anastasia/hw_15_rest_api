@@ -2,19 +2,19 @@ package api;
 
 import helpers.TestData;
 import io.qameta.allure.Step;
-import models.book_store.AuthorizationResponseModel;
-import models.book_store.CreateUserRequestModel;
-import models.book_store.CreateUserResponseModel;
-import models.book_store.GenerateTokenResponseModel;
-import tests.BooksStoreTestBase;
+import models.AuthorizationResponseModel;
+import models.CreateUserRequestModel;
+import models.CreateUserResponseModel;
+import models.GenerateTokenResponseModel;
+import tests.TestBase;
 
 import static io.restassured.RestAssured.given;
 import static specs.ApiSpecs.*;
 
-public class AuthorizationApi extends BooksStoreTestBase {
+public class AuthorizationApi extends TestBase {
 
 
-    public static CreateUserRequestModel registrationBody(){
+    public static CreateUserRequestModel registrationBody() {
         CreateUserRequestModel user = new CreateUserRequestModel();
 
         TestData testData = new TestData();
@@ -28,7 +28,7 @@ public class AuthorizationApi extends BooksStoreTestBase {
     }
 
     @Step("Регистрация через API")
-    public static CreateUserResponseModel registration(CreateUserRequestModel user){
+    public static CreateUserResponseModel registration(CreateUserRequestModel user) {
 
         return
                 given(requestSpec)
@@ -42,7 +42,7 @@ public class AuthorizationApi extends BooksStoreTestBase {
     }
 
     @Step("Генерация токена через API")
-    public static GenerateTokenResponseModel token(CreateUserRequestModel user){
+    public static GenerateTokenResponseModel token(CreateUserRequestModel user) {
         return
                 given(requestSpec)
                         .body(user)
@@ -56,7 +56,7 @@ public class AuthorizationApi extends BooksStoreTestBase {
 
 
     @Step("Авторизация через API")
-    public static AuthorizationResponseModel auth(CreateUserRequestModel user){
+    public static AuthorizationResponseModel auth(CreateUserRequestModel user) {
         return
                 given(requestSpec)
                         .body(user)
@@ -69,12 +69,9 @@ public class AuthorizationApi extends BooksStoreTestBase {
     }
 
 
-    public AuthorizationResponseModel createNewUserTest(){
+    public AuthorizationResponseModel createNewUserTest() {
         CreateUserRequestModel body = AuthorizationApi.registrationBody();
-        CreateUserResponseModel registration = AuthorizationApi.registration(body);
-        GenerateTokenResponseModel token = AuthorizationApi.token(body);
-        AuthorizationResponseModel auth = AuthorizationApi.auth(body);
 
-        return auth;
+        return AuthorizationApi.auth(body);
     }
 }

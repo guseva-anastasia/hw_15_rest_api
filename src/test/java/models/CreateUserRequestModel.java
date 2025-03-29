@@ -1,4 +1,5 @@
-package models.book_store;
+package models;
+
 import lombok.Data;
 
 @Data
