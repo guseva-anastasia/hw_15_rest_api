@@ -13,7 +13,7 @@ import static com.codeborne.selenide.logevents.SelenideLogger.step;
 public class AddCookie extends TestBase {
     final AuthorizationApi authApi = new AuthorizationApi();
 
-    @Step("Добавить cookie авторизации в браузер")
+    @Step("Создать нового пользователя")
     public AuthorizationResponseModel addCookie() {
         AuthorizationResponseModel auth = authApi.createNewUserTest();
         step("Добавить cookie авторизации в браузер", () -> {
