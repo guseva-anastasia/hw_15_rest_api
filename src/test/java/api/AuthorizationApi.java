@@ -71,7 +71,8 @@ public class AuthorizationApi extends TestBase {
 
     public AuthorizationResponseModel createNewUserTest() {
         CreateUserRequestModel body = AuthorizationApi.registrationBody();
-
+        registration(body);
+        token(body);
         return AuthorizationApi.auth(body);
     }
 }
