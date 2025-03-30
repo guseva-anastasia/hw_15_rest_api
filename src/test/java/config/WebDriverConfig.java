@@ -8,7 +8,7 @@ import org.aeonbits.owner.Config;
 public interface WebDriverConfig extends Config {
 
     @Key("baseUrl")
-    @DefaultValue("https://github.com")
+    @DefaultValue("https://demoqa.com")
     String getBaseUrl();
 
     @Key("browser")

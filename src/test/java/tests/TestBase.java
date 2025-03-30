@@ -28,7 +28,6 @@ public class TestBase {
     static void configurationBrowser() {
         WebDriverProvider webDriverProvider = new WebDriverProvider(config);
         webDriverProvider.setConfig();
-        Configuration.baseUrl = "https://demoqa.com";
         RestAssured.baseURI = "https://demoqa.com";
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
