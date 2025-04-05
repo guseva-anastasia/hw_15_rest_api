@@ -7,6 +7,7 @@ import lombok.Data;
 public class AuthorizationResponseModel {
 
     @JsonProperty("created_date")
+    private String createdDate;
 
-    String userId, username, password, token, expires, createdDate, isActive;
+    String userId, username, password, token, expires, isActive;
 }
