@@ -8,7 +8,7 @@ import tests.TestBase;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
-import static com.codeborne.selenide.logevents.SelenideLogger.step;
+import static io.qameta.allure.Allure.step;
 
 public class AddCookie extends TestBase {
     final AuthorizationApi authApi = new AuthorizationApi();
